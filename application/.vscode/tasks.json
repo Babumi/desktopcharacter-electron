@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0",  
+    "command": "npm",
+    "windows": { "command": "npm.cmd" },
+    "isShellCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+        {           
+            "taskName": "run",
+            "args": [ "run", "dev" ],
+            "isBuildCommand": true          
+        },
+        {           
+            "taskName": "install",
+            "args": [ "install" ],
+            "showOutput": "always"
+            
+        }
+    ]
+}

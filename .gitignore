@@ -1,0 +1,10 @@
+.DS_Store
+!.gitkeep
+__pycache__
+node_modules
+npm-debug.log
+thumbs.db
+application/app/dist
+application/app/src/extension/live2d
+application/builds
+application/assets
