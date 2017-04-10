@@ -12,7 +12,7 @@ let mainWindow
 let config = {}
 
 if (process.env.NODE_ENV === 'development') {
-  config = require('../../../../config')
+  config = require('../../../config')
   config.url = `http://localhost:${config.port}`
 } else {
   config.devtron = false
@@ -26,8 +26,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
       width: 512,
       height: 512,
-      //transparent: true,
-      //frame: false,
+      transparent: true,
+      frame: false,
       resizable: false,
       skipTaskbar: true,
       hasShadow: false,

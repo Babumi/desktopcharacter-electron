@@ -40,7 +40,7 @@ function run (command, color, name) {
      */
     if (/VALID/g.test(data.toString().trim().replace(/\n/g, '\n' + repeat(' ', command.length + 2))) && !isElectronOpen) {
       console.log(`${BLUE}Starting electron...\n${END}`)
-      run('cross-env NODE_ENV=development electron app/src/entry/main_process/electron.js', BLUE, 'electron')
+      run('cross-env NODE_ENV=development electron app/src/main/Application.js', BLUE, 'electron')
       isElectronOpen = true
     }
   })

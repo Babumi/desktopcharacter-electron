@@ -24,11 +24,6 @@ const contents = electron.remote.getCurrentWebContents()
 
 var PacketManager = window.ActionPacketManager
 
-console.log(contents)
-
-//!< マウスとかの処理
-require("./entry/render_process/UserInput.js")
-
 export default {
     name: 'app',
     components: {
@@ -104,5 +99,7 @@ export default {
         },
     }
 };
+
+require("./ExtesntionEvent")
 
 </script>

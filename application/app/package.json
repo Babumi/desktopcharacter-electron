@@ -2,7 +2,7 @@
   "name": "live2d-sample",
   "version": "0.0.0",
   "description": "An electron-vue project",
-  "main": "src/entry/main_process/electron.js",
+  "main": "src/main/Application.js",
   "dependencies": {
     "vue": "^2.0.1",
     "vue-electron": "^1.0.0"

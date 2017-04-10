@@ -14,7 +14,7 @@
                 "NODE_ENV" :"development"
             },
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
-            "program": "${workspaceRoot}/app/src/entry/main_process/electron.js"      
+            "program": "${workspaceRoot}/app/src/main/Application.js"      
         },        
         {
             "name": "web-packet-service",
