@@ -2,7 +2,8 @@
     <body>
         <div id="app" @click.shift="openMenu">
             <canvas id="glcanvas" width = "512px" height="512px"></canvas>
-            <ModalMenu></ModalMenu>             
+            <ModalMenu></ModalMenu>
+            <button @click="WindowCreate()">Button</button>             
         </div>
     </body>
 </template>
@@ -38,12 +39,15 @@ export default {
         }
     },
     mounted () {
+        console.log(this.$store._actions)
+        console.log(this.$store._mutations)
         this.initialize();
     },
     methods: {
         ...mapActions([
             'NextSequence',
-            'AddMenu'
+            'AddMenu',
+            'WindowCreate'
         ]),
         openMenu: function(e) {
             this.NextSequence({ from: 'Main', to: 'Menu' })
@@ -100,6 +104,6 @@ export default {
     }
 };
 
-require("./ExtesntionEvent")
+
 
 </script>

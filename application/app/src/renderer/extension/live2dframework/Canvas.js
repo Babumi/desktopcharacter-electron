@@ -6,7 +6,7 @@
 *
 *  (c) Live2D Inc. All rights reserved.
 */
-import Live2D from '../live2d/lib/live2d.min.js'
+require('../live2d/lib/live2d.min.js')
 const manager = window.ActionPacketManager;
 
 export default class Canvas
@@ -16,7 +16,6 @@ export default class Canvas
     OpenGLDevice = null; //!< OpenGLのデバイス
     
     constructor() {
-
         // Live2Dの初期化
         window.Live2D.init();
     

@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 const path = require('path')
 const pkg = require('./app/package.json')
 const settings = require('./config.js')
@@ -10,8 +12,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
   devtool: '#eval-source-map',
+  
   entry: {
-    build: path.join(__dirname, 'app/src/renderer/main.js')
+    build: path.join(__dirname, 'app/src/renderer/index.js')
   },
   module: {
     loaders: [
@@ -68,7 +71,7 @@ let config = {
     new webpack.NoErrorsPlugin()
   ],
   output: {
-    filename: '[name].js',
+    filename: '[name]_.js',
     path: path.join(__dirname, 'app/dist')
   },
   resolve: {

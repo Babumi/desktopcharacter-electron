@@ -14,7 +14,7 @@
                 "NODE_ENV" :"development"
             },
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
-            "program": "${workspaceRoot}/app/src/main/Application.js"      
+            "program": "${workspaceRoot}/app/src/main/index.dev.js"
         },        
         {
             "name": "web-packet-service",
@@ -22,7 +22,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
             "args": [
-                "--inline", "--hot", "--colors", "--port", "9080", "--content-base", "app/dist"
+                "--hot", "--colors", "--config", "webpack.config.js", "--port", "9080", "--content-base", "app/dist"
             ]
         }
     ]

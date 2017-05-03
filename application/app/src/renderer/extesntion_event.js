@@ -13,12 +13,12 @@ export default class ExtenstionEvent
   {
     window.addEventListener("mousemove",
       function (e) {
+        
         var mx = e.screenX;
         var my = e.screenY;
         if (this.dragFlag && this.prevX && this.prevY) {
           var dx = mx - this.prevX;
           var dy = my - this.prevY;
-
           var response = electron.ipcRenderer.sendSync('window_drag', { x: dx, y: dy });
           this.prevX = mx;
           this.prevY = my;
@@ -38,6 +38,3 @@ export default class ExtenstionEvent
       }, false);
   }
 }
-
-global.ExtenstionEvent = new ExtenstionEvent()
-global.ExtenstionEvent.activate()
