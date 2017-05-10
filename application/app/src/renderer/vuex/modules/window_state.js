@@ -10,8 +10,8 @@ const state = {
 }
 
 const mutations = {
-  [type.WINDOW_CREATE] (state) {
-    ipc.send(IPCKeys.RequestCreateNewWindow)
+  [type.WINDOW_CREATE] (state, desc) {
+    ipc.send(IPCKeys.RequestCreateNewWindow, desc)
   },
 }
 

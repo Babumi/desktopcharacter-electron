@@ -11,8 +11,8 @@ export default {
         context.commit( type.ADD_MENU, menuData )
     },
 
-    WindowCreate: ({ commit }) => {
-        commit( type.WINDOW_CREATE )
+    WindowCreate: ({ commit }, desc ) => {
+        commit( type.WINDOW_CREATE, desc )
     },
 
 }

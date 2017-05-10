@@ -2,13 +2,12 @@
 
 import Electron from 'electron'
 import WindowManager from './window_manager'
+import WindowDesc from '../common/window_desc'
 
 class Main
 {
     constructor()
     {
-        console.log("Main - constructor")
-
         this.IPC = require('electron').ipcMain
         
         this.Shell = require('electron').shell
@@ -20,7 +19,7 @@ class Main
 
     onReady()
     {
-        this.Window = this.WindowManager.createWindow()
+        this.Window = this.WindowManager.createWindow(new WindowDesc())
         this.IPC.on('window_drag', function (event, arg) 
         {
             

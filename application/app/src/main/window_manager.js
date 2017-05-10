@@ -1,5 +1,6 @@
 import Electron from 'electron'
-import { IPCKeys } from '../common/constants.js'
+import { IPCKeys } from '../common/constants'
+import WindowDesc from '../common/window_desc'
 
 export default class WindowManager
 {
@@ -40,17 +41,21 @@ export default class WindowManager
         }
     }
       
-    createWindow () {
+    /**
+     * 
+     * @param {WindowDesc} desc 
+     */  
+    createWindow (desc) {
         const w = new Electron.BrowserWindow({
-            width: 512,
-            height: 512,
-            //transparent: true,
-            //frame: false,
-            resizable: false,
-            skipTaskbar: true,
-            hasShadow: false,
-            alwaysOnTop: true,
-            webSecurity: false
+            width: desc.width,
+            height: desc.height,
+            transparent: desc.transparent,
+            frame: desc.frame,
+            resizable: desc.resizable,
+            skipTaskbar: desc.skipTaskbar,
+            hasShadow: desc.hasShadow,
+            alwaysOnTop: desc.alwaysOnTop,
+            webSecurity: desc.webSecurity,
         })
 
         const id = w.id
@@ -60,12 +65,8 @@ export default class WindowManager
             this.WindowMap.delete(id)
             this.notifyUpdateWindowIDs(id)
         })
-
-        const url = process.env.NODE_ENV === 'development'
-            ? this.createURL(this.WindowMap.size)
-            : this.createURL(id)
         
-        w.loadURL(url)
+        w.loadURL(this.createURL(id))
         this.WindowMap.set(id, w)
 
         return w
@@ -73,10 +74,7 @@ export default class WindowManager
 
     createURL(id)
     {
-        const url = process.env.NODE_ENV === 'development'
-            ? `http://localhost:${require('../../../config').port + id}`
-            : `file://${__dirname}/index.html` + '#' + id
-        return url;
+        return `file://${__dirname}/index.html` + '#' + id;
     }
 
     /**
@@ -103,9 +101,9 @@ export default class WindowManager
      *
      * @param {IPCEvent} ev Event data.
      */
-    onRequestCreateNewWindow (ev) 
+    onRequestCreateNewWindow (ev, desc) 
     {
-        const createdWindow = this.createNewWindow()
+        const createdWindow = this.createWindow(desc)
         ev.sender.send(IPCKeys.FinishCreateNewWindow)
 
         this.notifyUpdateWindowIDs(createdWindow.id)

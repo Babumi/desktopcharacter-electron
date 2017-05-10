@@ -12,6 +12,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
   devtool: '#eval-source-map',
+
+  cache: true,
   
   entry: {
     build: path.join(__dirname, 'app/src/renderer/index.js')
@@ -63,15 +65,10 @@ let config = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './app/index.ejs',
-      title: settings.name
-    }),
     new webpack.NoErrorsPlugin()
   ],
   output: {
-    filename: '[name]_.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'app/dist')
   },
   resolve: {
@@ -99,7 +96,7 @@ let config = {
  */
 if (process.env.NODE_ENV === 'production') {
   config.devtool = ''
-
+  config.cache = false
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'

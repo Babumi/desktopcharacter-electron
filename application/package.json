@@ -11,6 +11,7 @@
     "build:win32": "cross-env PLATFORM_TARGET=win32 node tasks/release.js",
     "dev": "node tasks/runner.js",
     "pack": "cross-env NODE_ENV=production webpack -p --progress --colors",
+    "pack:dev": "cross-env NODE_ENV=development webpack -p --progress --colors --watch",
     "postinstall": "cd app && npm install"
   },
   "author": "Greg Holguin <simulatedgreg@gmail.com>",

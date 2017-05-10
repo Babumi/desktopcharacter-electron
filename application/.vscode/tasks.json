@@ -14,7 +14,11 @@
             "taskName": "install",
             "args": [ "install" ],
             "showOutput": "always"
-            
+        },
+        {           
+            "taskName": "webpack devlopment",
+            "args": [ "run", "pack:dev" ],
+            "showOutput": "always"
         }
     ]
 }

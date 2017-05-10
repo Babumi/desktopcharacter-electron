@@ -2,8 +2,7 @@
     <body>
         <div id="app" @click.shift="openMenu">
             <canvas id="glcanvas" width = "512px" height="512px"></canvas>
-            <ModalMenu></ModalMenu>
-            <button @click="WindowCreate()">Button</button>             
+            <ModalMenu></ModalMenu>    
         </div>
     </body>
 </template>
@@ -18,6 +17,7 @@ import ActionPacket from './extension/live2dframework/ActionCommand.js'
 import ModelFormat from './extension/live2dframework/ModelFormat.js'
 import Model from './extension/live2dframework/Model.js'
 import Canvas from './extension/live2dframework/Canvas.js'
+import WindowDesc from '../common/window_desc'
 
 const electron = require('electron')
 const app = electron.remote.app
@@ -107,3 +107,4 @@ export default {
 
 
 </script>
+
